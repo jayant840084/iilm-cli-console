@@ -1,4 +1,5 @@
-import csv, bcrypt, pprint
+import csv
+import bcrypt
 
 from cliConsole.utils import utils_db, utils_print
 
