@@ -1,4 +1,5 @@
-from cliConsole.users import users
+from console.users import users
+from console.utils import utils_input
 
 
 if __name__ == '__main__':

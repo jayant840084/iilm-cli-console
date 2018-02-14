@@ -1,4 +1,4 @@
-from cliConsole import db
+from console import db
 
 collection = db.get_db()['users']
 
@@ -11,11 +11,11 @@ def find_by_uid(uid):
     return collection.find_one({'uid': uid})
 
 
-def update_password(uid, password):
+def update(uid, key, new_value):
     return collection.update_one({
         'uid': uid
     }, {
         '$set': {
-            'password': password
+            key: new_value
         }
     }, upsert=False)

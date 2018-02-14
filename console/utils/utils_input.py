@@ -1,6 +1,8 @@
 import bcrypt
+import string
+import random
 
-from cliConsole import config
+from console import config
 
 
 def get_scope():
@@ -33,13 +35,12 @@ def get_name():
     while True:
         name = input("Name -> ")
         if int(constraints.get('name').get('maxLength')) > len(name) \
-                > int(constraints.get('name').get('minLength')) \
-                and name.isalpha():
+                > int(constraints.get('name').get('minLength')):
             return name
         else:
             print("Name should be of minimum length {} and maximum length {} and contain only alphabets"
-                  .format(constraints.get('uid').get('minLength'),
-                          constraints.get('uid').get('maxLength')))
+                  .format(constraints.get('name').get('minLength'),
+                          constraints.get('name').get('maxLength')))
 
 
 def get_password():
@@ -77,3 +78,51 @@ def get_phone_number():
         else:
             print("Password should be of length {} and contain only numbers"
                   .format(constraints.get('phoneNumber').get('length')))
+
+
+def get_email():
+    email = input("Email -> ")
+    return email
+
+
+def generate_random_password(length=5):
+    password = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(length))
+    password_hash = str(bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt(10)), 'utf-8')
+    return {
+        'password': password,
+        'hash': password_hash
+    }
+
+
+def get_year():
+    while True:
+        year = input("Year -> ")
+        if year.isnumeric():
+            return year
+        else:
+            print("Year should be a number, try again")
+
+
+def get_room_number():
+    while True:
+        room_number = input("Room Number -> ")
+        if room_number.isnumeric():
+            return room_number
+        else:
+            print("Room Number should be a number, try again")
+
+
+def get_branch():
+    branches = [
+        "CSE",
+        "ME",
+        "BT",
+        "ECE"
+    ]
+    while True:
+        print("Available:", " ".join(branches))
+        branch = input("Branch -> ")
+        if branch in branches:
+            return branch
+        else:
+            print("Invalid input, try again")

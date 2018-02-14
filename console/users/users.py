@@ -1,4 +1,4 @@
-from cliConsole.users import create_user, update_user, find_user, remove_user
+from console.users import create_user, update_user, find_user, remove_user
 
 
 def init():
