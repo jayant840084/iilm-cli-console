@@ -1,12 +1,4 @@
 user_config = {
-    'scope': {
-        'admin': {},
-        'guard': {},
-        'director': {},
-        'student': {},
-        'hod': {},
-        'warden': {}
-    },
     'input_validation': {
             'uid': {
                 'maxLength': 100,

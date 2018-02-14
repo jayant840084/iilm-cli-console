@@ -1,7 +1,9 @@
 # IILM CLI Console
+A command line tool for managing IILM database.
 
-#### Run: Activate virtual environment
-#### Then, python -m console
+#### How To Run
+Activate virtual environment \
+Execute in terminal: python -m console
 
 #### Create use from data.csv file
 Place the data.csv file in the console folder.
